@@ -1,0 +1,22 @@
+{
+  "name": "app-class-october",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoaoDeluchi/App-class-october.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoaoDeluchi/App-class-october/issues"
+  },
+  "homepage": "https://github.com/JoaoDeluchi/App-class-october#readme",
+  "dependencies": {
+    "typescript": "^4.5.4"
+  }
+}
