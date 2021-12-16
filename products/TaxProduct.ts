@@ -7,12 +7,3 @@ export abstract class TaxProduct extends Product {
 
     abstract getTax(): number
 }
-
-class Eletronic extends TaxProduct {
-    constructor(description: string, price: number, category: string){
-        super(description, price, category)
-    }
-    getTax(): number {
-        return this.price * 0.8
-    }
-}
