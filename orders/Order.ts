@@ -1,6 +1,6 @@
-import {  IOrder } from '../../interfaces/order'
-import { IProduct } from '../../interfaces/product'
-import { IClient } from '../../interfaces/client'
+import {  IOrder } from '../interfaces/order'
+import { IProduct } from '../interfaces/product'
+import { IClient } from '../interfaces/client'
 
 /// This class was made to simulate a data base 
 export class Order implements IOrder {
