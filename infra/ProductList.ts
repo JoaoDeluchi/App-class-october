@@ -1,6 +1,5 @@
-import { IProduct } from "../interfaces/product";
-import { Cigar } from "../products/Cigar";
-import { Product } from "../products/Product";
+import { IProduct } from "../interfaces/product"
+import { Product } from "../products/Product"
 
 
 export class ProductDB {
