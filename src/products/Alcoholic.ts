@@ -1,6 +1,6 @@
 import { TaxProduct } from "./TaxProduct"
 
-export class Alcoholics extends TaxProduct {
+export class Alcoholic extends TaxProduct {
     constructor(description: string, price: number){
         super(description, price, 'Alcoholics')
     }

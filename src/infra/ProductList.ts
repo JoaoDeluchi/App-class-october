@@ -1,7 +1,9 @@
 import { IProduct } from "../interfaces/product"
 import { Product } from "../products/Product"
 
-
+//// Deleta um produto pelo id
+//// Edita um produto pelo id, recebendo todas as props do produto
+//// A CAMADA DE VIEW DEVE SER IMPLEMENTADA TAMBÉM 
 export class ProductDB {
     productList: IProduct[] = []
 
