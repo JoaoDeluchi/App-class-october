@@ -1,9 +1,6 @@
 import { IProduct } from "../interfaces/product"
 import { Product } from "../products/Product"
 
-//// Deleta um produto pelo id
-//// Edita um produto pelo id, recebendo todas as props do produto
-//// A CAMADA DE VIEW DEVE SER IMPLEMENTADA TAMBÉM 
 export class ProductDB {
     productList: IProduct[] = []
 
@@ -14,4 +11,22 @@ export class ProductDB {
     getProductById(productId:string): Product[]{
         return this.productList.filter(({id}) => productId === id )
     }
+
+    deleteProduct(productId: string){
+        this.productList = this.productList.filter(({id}) => id !== productId)
+        return this.productList
+    }
+
+    updateProduct(productId: string, newValue: IProduct){
+        this.productList.map(({id, description, price, category}) => {
+            if(id === productId){
+                description = newValue.description
+                price = newValue.price
+                category = newValue.category
+                id = productId
+            }
+        })
+    return this.productList
+    }
+
 }

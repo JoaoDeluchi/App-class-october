@@ -1,10 +1,11 @@
 import { productDBInstance } from '../../infra/instance'
-/// Router é a classe que cria objeto com os http methods
-/// Request Response types do express que podem ser importados após instalação do @types/express
 import { Router, Request, Response } from 'express'
 import { Beer } from '../../products/Beer'
 import { Cigar } from '../../products/Cigar'
 import { Alcoholic } from '../../products/Alcoholic'
+import { Water } from '../../products/Water'
+import { Factory } from '../../category'
+import { IProduct } from '../../interfaces/product'
 const route = Router()
 
 route.get('/products', (_: Request, res: Response) => {
@@ -38,4 +39,33 @@ route.post('/product/alcoholic',(req: Request, res: Response) => {
     res.json(productDBInstance.productList)
 })
 
+route.post('/product/water',(req: Request, res: Response) => {
+    const { price, description } = req.body
+    const newWater = new Water(description, price)
+    productDBInstance.createNewProduct(newWater)
+    res.json(productDBInstance.productList)
+})
+
+route.patch('/product/id=:id', (req: Request, res: Response) => {
+    const { id } = req.params
+    const {description, price, category} = req.body
+    const factoryObj = new Factory()
+    const newProduct: IProduct = factoryObj.getObject(description, price, category)
+    const updatedList = productDBInstance.updateProduct(id, newProduct)
+    res.json(updatedList)
+
+})
+
+route.delete('product/id=:id', (req:Request, res:Response) => {
+    const currentId = req.params.id
+    return res.json(productDBInstance.deleteProduct(currentId))
+})
+
+route.patch('/product/beer/id=:id', (req: Request, res: Response) => {
+    const { id } = req.params
+    const {description, price} = req.body
+    const newBeer = new Beer(description, price)
+    const updatedList = productDBInstance.updateProduct(id, newBeer)
+    res.json(updatedList)
+})
 export { route }
