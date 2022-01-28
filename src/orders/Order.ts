@@ -1,6 +1,5 @@
 import {  IOrder } from '../interfaces/order'
 import { IProduct } from '../interfaces/product'
-import { IClient } from '../interfaces/client'
 
 export class Order implements IOrder {
     id: string
